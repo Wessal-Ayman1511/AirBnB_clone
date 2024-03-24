@@ -16,13 +16,13 @@ class BaseModel:
 
 	def save(self):
 		"""
-
+		Function that save
 		"""
 		self.updated_at = datetime.utcnow()
 
 	def to_dict(self):
 		"""
-		
+		function to convert to dictonary
 		"""
 		ob_dic = self.__dict__.copy()
 		ob_dic["__class__"] = self.__class__.__name__
@@ -31,7 +31,7 @@ class BaseModel:
 		return ob_dic
 	def __str__(self):
 		"""
-
+		Function that string represent
 		"""
 		className = self.__class__.__name__
 		return "[{}] ({}) {}".format(className, self.id, self.__dict__)
