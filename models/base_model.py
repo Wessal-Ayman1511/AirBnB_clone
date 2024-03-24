@@ -23,14 +23,14 @@ class BaseModel:
 				else:
 					setattr(self, key, value)
 
-		models.storage.new(self)
+		#models.storage.new(self)
 
 	def save(self):
 		"""
 
 		"""
 		self.updated_at = datetime.utcnow()
-		models.storage.save()
+		#models.storage.save()
 
 	def to_dict(self):
 		"""
@@ -65,11 +65,11 @@ if __name__ == "__main__":
 	for key in my_model_json.keys():
 		print("\t{}: ({}) - {}".format(key, type(my_model_json[key]), my_model_json[key]))
 
-	print("--")
-	my_new_model = BaseModel(**my_model_json)
-	print(my_new_model.id)
-	print(my_new_model)
-	print(type(my_new_model.created_at))
+	# print("--")
+	# my_new_model = BaseModel(**my_model_json)
+	# print(my_new_model.id)
+	# print(my_new_model)
+	# print(type(my_new_model.created_at))
 
-	print("--")
-	print(my_model is my_new_model)
+	# print("--")
+	# print(my_model is my_new_model)
