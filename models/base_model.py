@@ -4,6 +4,7 @@ Module for creating baseClass
 """
 import uuid
 from datetime import datetime
+import models
 
 
 class BaseModel:
@@ -20,12 +21,14 @@ class BaseModel:
                     setattr(self, key, datetime.strptime(value, timeFormat))
                 else:
                     setattr(self, key, value)
+        models.storage.new(self)
 
     def save(self):
         """
         Function that save
         """
         self.updated_at = datetime.now()
+        models.storage.save()
 
     def to_dict(self):
         """
